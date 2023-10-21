@@ -20,10 +20,19 @@
                         <h3 class="text-center font-weight-light my-4">Create Account</h3>
                     </div>
                     <div class="card-body">
-                        <form action="/user/register" method="POST">
+                        <form action="/users/register" method="POST">
+                            
+                            <% if (errors != null && errors.length > 0) { %>
+                                <% for(let i = 0; i < errors.length; i++) { %>
+                                <p class="alert alert-danger">
+                                    <%= errors[i] %>
+                                </p>
+                                <% } %>
+                            <% } %>
+
                             <div class="form-floating mb-3">
                                 <input class="form-control" id="inputUserName" type="text" placeholder="Username"
-                                    name="username" />
+                                    name="username" value="<%= username %>"/>
                                 <label for="inputFirstName">Username</label>
                             </div>
                             <!-- <div class="form-floating mb-3">
@@ -32,19 +41,19 @@
                             </div> -->
                             <div class="form-floating mb-3">
                                 <input class="form-control" id="inputEmail" type="email" placeholder="name@example.com"
-                                    name="email" />
+                                    name="email" value="<%= email %>"/>
                                 <label for="inputEmail">Email address</label>
                             </div>
                             <div class="form-floating mb-3">
                                 <input class="form-control" id="inputPassword" type="password" placeholder="Password"
-                                    name="password" />
+                                    name="password" value="<%= password %>"/>
                                 <label for="inputPassword">Password</label>
                             </div>
-                            <div class="form-floating mb-3">
+                            <!-- <div class="form-floating mb-3">
                                 <input class="form-control" id="inputConfirmPassword" type="password"
                                     placeholder="Confirm password" name="password" />
                                 <label for="inputConfirmPassword">Confirm Password</label>
-                            </div>
+                            </div> -->
                             <div class="mt-4 mb-0">
                                 <div class="d-grid"><button class="btn btn-primary btn-block" type="submit">Create
                                         Account</button></div>
@@ -52,7 +61,7 @@
                         </form>
                     </div>
                     <div class="card-footer text-center py-3">
-                        <div class="small"><a href="#">Have an account? Go to login</a></div>
+                        <div class="small"><a href="/login">Have an account? Go to login</a></div>
                     </div>
                 </div>
             </div>
