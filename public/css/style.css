@@ -3,13 +3,3 @@
 body {
     font-family: 'Niramit', sans-serif !important; 
 }
-
-#indexejs{
-    margin-top: 70px;
-    padding-top: 5px;
-    /* border: 1px solid #ff0000; */
-    /* background-color: aqua; */
-    position: relative;
-    height: 100vh;
-
-}

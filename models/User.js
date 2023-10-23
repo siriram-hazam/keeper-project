@@ -14,18 +14,25 @@ const UserSchema = new Schema({
     email: {
         type: String,
         required: [true, 'Email is required']
+    },
+    roles: {
+        type: String,
+        // required: [true, 'Type is required']
     }
 })
 
 UserSchema.pre('save', function(next) {
     const user = this
+    const roles = 'user'
     bcrypt.hash(user.password, 10).then(hash => {
         user.password = hash
+        user.roles = roles
         next()
     }).catch(error => {
         console.error(error)
     })
+    
 })
 
-const User = mongoose.model('User', UserSchema)
+const User = mongoose.model('users', UserSchema)
 module.exports = User
