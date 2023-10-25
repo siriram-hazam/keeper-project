@@ -8,7 +8,7 @@ module.exports = async (req, res) => {
 
     try{
         if (UserData.roles === "admin") {
-            res.render('admin_update', {
+            res.render('admin_delete', {
                 UserData,
                 ContentData
             })
